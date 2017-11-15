@@ -1,0 +1,131 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Frequently Asked Questions
+% LaTeX Template
+% Version 1.0 (22/7/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Adam Glesser (adamglesser@gmail.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt]{article}
+
+\usepackage[margin=0.9in]{geometry} % Required to make the margins smaller to fit more content on each page
+\usepackage[linkcolor=blue]{hyperref} % Required to create hyperlinks to questions from elsewhere in the document
+\hypersetup{pdfborder={0 0 0}, colorlinks=true, urlcolor=blue} % Specify a color for hyperlinks
+\usepackage{todonotes} % Required for the boxes that questions appear in
+\usepackage{tocloft} % Required to give customize the table of contents to display questions
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage{palatino} % Use the Palatino font
+\usepackage{graphicx}
+\usepackage{wasysym}
+\usepackage{tabularx}
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\setlength\headheight{23pt} 
+% Create and define the list of questions
+\newlistof{questions}{faq}{\large List of Frequently Asked Questions} % This creates a new table of contents-like environment that will output a file with extension .faq
+\setlength\cftbeforefaqtitleskip{4em} % Adjusts the vertical space between the title and subtitle
+\setlength\cftafterfaqtitleskip{1em} % Adjusts the vertical space between the subtitle and the first question
+\setlength\cftparskip{.3em} % Adjusts the vertical space between questions in the list of questions
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+\definecolor{314blue}{HTML}{00ADEF}
+\definecolor{314orange}{HTML}{F1592A}
+\definecolor{lightblue}{HTML}{b2ddd9}
+% Create the command used for questions
+\newcommand{\question}[1] % This is what you will use to create a new question
+{
+\refstepcounter{questions} % Increases the questions counter, this can be referenced anywhere with \thequestions
+\par\noindent % Creates a new unindented paragraph
+\phantomsection % Needed for hyperref compatibility with the \addcontensline command
+\addcontentsline{faq}{questions}{#1} % Adds the question to the list of questions
+\todo[inline, color=lightblue]{\textbf{#1}} % Uses the todonotes package to create a fancy box to put the question
+\vspace{1em} % White space after the question before the start of the answer
+}
+
+% Uncomment the line below to get rid of the trailing dots in the table of contents
+%\renewcommand{\cftdot}{}
+
+% Uncomment the two lines below to get rid of the numbers in the table of contents
+%\let\Contentsline\contentsline
+%\renewcommand\contentsline[3]{\Contentsline{#1}{#2}{}}
+
+\begin{document}
+\pagenumbering{gobble}
+\rhead{\includegraphics[width=0.25\columnwidth]{314logo.png}}
+%----------------------------------------------------------------------------------------
+%	TITLE AND LIST OF QUESTIONS
+%----------------------------------------------------------------------------------------
+
+\begin{center}
+\Huge{\bf \emph{Impact of H.R. 1 on Graduate Students}} % Main title
+\end{center}
+{\it Section 1204(e) of H.R. 1, the Tax Cuts and Jobs Act, repeals an important tax exemption for graduate students receiving a tuition remission. Here we provide a summary of its impacts on government revenues, graduate students, and graduate institutions.}
+%\listofquestions % This prints the subtitle and a list of all of your questions
+
+%\newpage % Comment this if you would like your questions and answers to start immediately after table of questions
+
+%----------------------------------------------------------------------------------------
+%	QUESTIONS AND ANSWERS
+%----------------------------------------------------------------------------------------
+
+\question{How much money is raised by repealing the tuition exemption for graduate students?}\label{new-question}
+
+Using the latest data available\footnote{From the American Council on Education, \tt{https://goo.gl/AfzguP}}, we estimate that the revenue raised by this provision would be between \$250 and \$360 million annually, or approximately \$3 billion over 2018-2027.
+It is worth comparing this amount to the impact of some other provisions in H.R. 1:
+\begin{table}[ht]
+\begin{tabularx}{\textwidth}{l@{\hskip 0.75in}l}
+\hline \hline
+ \bf{Name} & \bf{Change in Revenue 2018-2027}\\ \hline
+Reduction and simplification of individual income tax rates &  \textcolor{314orange}{\DOWNarrow} \thinspace \thinspace \$995 billion decrease\\ \hline
+Enhancement of standard deduction & \textcolor{314orange}{\DOWNarrow} \thinspace \thinspace \$819 billion decrease \\ \hline
+Repeal of deduction for personal exemptions & \textcolor{314blue}{\UParrow} \thinspace \thinspace \$1,383 billion increase\\ \hline
+Maximum rate on business income of individuals & \textcolor{314orange}{\DOWNarrow} \thinspace \thinspace \$597 billion decrease\\ \hline
+Simplification and Reform of Deductions &\textcolor{314blue}{\UParrow} \thinspace \thinspace \$1,258 billion increase\\
+\hline
+\end{tabularx}
+\end{table}
+
+The money raised by repealing the tuition exemption is several orders of magnitude less than the changes in revenue due to other provisions in the bill.
+
+%------------------------------------------------
+
+\question{What is the financial impact for graduate students?}\label{labels}
+
+There are hundreds of doctoral-granting institutions that are home to over 145,000 graduate students receiving a tuition exemption.
+An analysis performed at UC Berkeley\footnote{By physics PhD student Vetri Velan, available at \tt{https://goo.gl/PEVi1w}} found that under the proposed bill, the financial impact on a typical graduate student would be significant:
+\begin{table}[ht]
+\begin{tabularx}{\textwidth}{l@{\hskip 1.2in}l@{\hskip 1.15in}l}
+\hline \hline
+ \bf{Student} & \bf{Type of School} & \bf{Change in Annual Tax Burden}\\ \hline
+Teaching Assistant & Public &\textcolor{314orange}{\UParrow} \thinspace \thinspace \$1,412 (61\%) increase\\ \hline
+Research Assistant & Public &\textcolor{314orange}{\UParrow} \thinspace \thinspace \$1,140 (31\%) increase \\ \hline
+Research Assistant & Private &\textcolor{314orange}{\UParrow} \thinspace \thinspace \$9,584 (240\%) increase\\ \hline
+
+\end{tabularx}
+\end{table}
+
+For first-year graduate students who are not yet California residents, the financial impact at a public school is similar to that of a private school.
+\\ \\
+Graduate students in California already live near the poverty line due to their low pay and high cost of living.
+The repeal of the tuition exemption would preclude many students from attending graduate school without going into significant debt.
+
+%------------------------------------------------
+
+\question{What is the impact for institutions?}\label{change-spacing}
+
+Upcoming negotiations between the unions representing graduate students and the University of California system highlight how H.R. 1 will negatively impact institutions of higher education.
+The increased tax burden on students will a) reduce negotiating power for the unions which represent tens of thousands of students, and b) require universities to spend more of their budget on graduate student stipends.
+\\ \\
+The high cost of living in California means that universities will have greater difficulties attracting talented graduate students, and the students that do enroll will be under even greater financial stress.
+In turn, the quality of both the teaching and the research done by these graduate students would suffer, and the negative impacts would be felt by all Californians.
+%------------------------------------------------
+
+\end{document}

@@ -1,0 +1,145 @@
+\documentclass[10pt]{article}
+
+\usepackage[margin=0.9in]{geometry} % Required to make the margins smaller to fit more content on each page
+\usepackage[linkcolor=blue]{hyperref} % Required to create hyperlinks to questions from elsewhere in the document
+\hypersetup{pdfborder={0 0 0}, colorlinks=true, urlcolor=blue} % Specify a color for hyperlinks
+\usepackage{todonotes} % Required for the boxes that questions appear in
+\usepackage{tocloft} % Required to give customize the table of contents to display questions
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage{palatino} % Use the Palatino font
+\usepackage{graphicx}
+\usepackage{wasysym}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage[skins]{tcolorbox}
+\usepackage{multicol}
+\usepackage{vwcol}  
+\usepackage{blindtext}
+\usetikzlibrary{matrix}
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[nomessages]{fp}
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\setlength\headheight{22pt} 
+% Create and define the list of questions
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0pt}
+\pagestyle{fancy}
+\definecolor{314blue}{HTML}{00ADEF}
+\definecolor{314orange}{HTML}{F1592A}
+\definecolor{lightblue}{HTML}{b2ddd9}
+\definecolor{lightorange}{HTML}{F69B7F}
+\definecolor{white}{HTML}{ffffff}
+
+\definecolor{lightgrey}{HTML}{eeeeee}
+\definecolor{medgrey}{HTML}{cccccc}
+
+
+\newenvironment{absolutelynopagebreak}
+  {\par\nobreak\vfil\penalty0\vfilneg
+   \vtop\bgroup}
+  {\par\xdef\tpd{\the\prevdepth}\egroup
+   \prevdepth=\tpd}
+
+
+% Create the command used for questions
+\newcommand{\representative}[6] 
+{
+\begin{absolutelynopagebreak}
+\FPeval{\result}{clip(100.0*#5)}
+\FPeval{\orangebarwidth}{clip(#5*12.0-6.0)}
+
+%\par\noindent % Creates a new unindented paragraph
+\Large{\bf \emph{#1}} %Name of representative in question
+\vspace{0.5em} % White space after the name
+
+\begin{vwcol}[widths={0.2, 0.8},sep=0.8cm, justify=flush,rule=0pt]%Headshot of representative
+ \begin{tikzpicture}
+ \node[circle,draw,inner sep=1.0cm, fill overzoom image=#6] {};
+\end{tikzpicture}
+
+\begin{tabularx}{\textwidth}{l r}
+
+\rowcolor{medgrey} {\large {\bf District}} & \large #2  \tabularnewline
+\rowcolor{lightgrey} \large{\bf University Represented} & \large #3\tabularnewline
+\rowcolor{medgrey} \large{\bf Number of Grad Students} & \large #4\tabularnewline
+\rowcolor{lightgrey} \large{\bf 2016 Support} & \result \%\tabularnewline
+\rowcolor{lightgrey}\multicolumn{2}{ c }{
+\tikz \fill [314orange]  (-6.0, 0.0) rectangle (\orangebarwidth,0.2);
+\tikz \fill [314blue] (\orangebarwidth, 0.0) rectangle (6.0,0.2);
+}\tabularnewline
+\end{tabularx}
+\end{vwcol}
+\end{absolutelynopagebreak}
+\vspace{-2em}
+}
+
+\begin{document}
+\pagenumbering{gobble}
+\rhead{\includegraphics[width=0.25\columnwidth]{314logo.png}}
+
+\begin{center}
+\Huge{\bf \emph{Republicans Representing Universities}} % Main title
+\end{center}
+{\it The November 16 version of H.R. 1, the Tax Cuts and Jobs Act, that passed the House would substantially increase the tax burden on graduate students receiving a tuition remission. Here we provide a list of members of Congress representing districts that contain universities with high amounts of research activity who nevertheless voted in favor of H.R. 1. Because they represent a constituency which will be negatively impacted by this bill, we believe these members of Congress are most likely to be amenable to removing the relevant provision.}
+
+\noindent\rule{17cm}{0.4pt}
+\vspace{1em} % White space after the name
+
+
+\representative{Mimi Walters (R)}{CA-45}{UC Irvine}{6136}{0.58}{headshots/walters.jpg}
+\representative{Tom Reed (R)}{NY-23}{Cornell University}{5482}{0.581}{headshots/reed.jpg}
+\representative{Ileana Ros-Lehtinen (R)}{FL-27}{University of Miami}{5725}{0.549}{headshots/ros_lehtinen.jpg}
+\representative{Trey Hollingsworth (R)}{IN-9}{Indiana University}{10511}{0.541}{headshots/hollingsworth.jpg}
+
+\representative{Ted Yoho (R)}{FL-3}{University of Florida}{12575}{0.566}{headshots/yoho.jpg}
+\representative{Mike Bishop (R)}{MI-8}{Michigan State University}{5275}{0.560}{headshots/bishop.jpg}
+\representative{Tom Garrett (R)}{VA-5}{University of Virginia}{6500}{0.583}{headshots/garrett.jpg}
+\representative{Joe Barton (R)}{TX-6}{UT Arlington}{12327}{0.583}{headshots/barton.jpg}
+\representative{Jackie Walorski (R)}{IN-2}{Notre Dame}{2250}{0.593}{headshots/walorski.jpg}
+\representative{Rodney Davis (R)}{IL-13}{UIUC}{13019}{0.597}{headshots/davis.jpg}
+\representative{Cathy McMorris Rogers (R)}{WA-5}{WSU}{4198}{0.596}{headshots/mcmorris_rogers.jpg}
+
+\representative{Neal Dunn (R)}{FL-2}{Florida State University}{9198}{0.67}{headshots/dunn.jpg}
+\representative{Steve Womack (R)}{AR-3}{University of Arkansas}{4161}{0.773}{headshots/womack.jpg}
+\representative{Andy Barr (R)}{KY-6}{University of Kentucky}{7022}{0.611}{headshots/barr.jpg}
+\representative{Trent Kelly (R)}{FL-3}{University of Mississippi}{2743}{0.687}{headshots/kelly.jpg}
+\representative{Vicky Hartzler (R)}{MO-4}{University of Missouri}{6481}{0.678}{headshots/hartzler.jpg}
+\representative{Jeff Fortenberry (R)}{NE-1}{University of Nebraska}{5064}{0.695}{headshots/fortenberry.jpg}
+\representative{Michael Burgess (R)}{TX-26}{University of North Texas}{6770}{0.664}{headshots/burgess.jpg}
+\representative{Tom Cole (R)}{OK-4}{University of Oklahoma}{6174}{0.696}{headshots/cole.jpg}
+\representative{Chris Stewart (R)}{UT-2}{University of Utah}{7757}{0.616}{headshots/stewart.jpg}
+\representative{Morgan Griffith (R)}{VA-9}{Virginia Tech}{6890}{0.686}{headshots/griffith.jpg}
+\representative{David McKinley (R)}{WV-1}{West Virginia University}{4598}{0.69}{headshots/mckinley.jpg}
+\representative{Steve King (R)}{IA-4}{Iowa State University}{5096}{0.612}{headshots/king.jpg}
+\representative{Roger Marshall (R)}{KS-1}{Kansas State University}{4307}{0.661}{headshots/marshall.jpg}
+\representative{Garrett Graves (R)}{LA-6}{LSU}{3749}{0.627}{headshots/graves.jpg}
+\representative{Glenn Thompson (R)}{PA-5}{Penn State University}{5902}{0.673}{headshots/thompson.jpg}
+\representative{Todd Rokita (R)}{IN-4}{Purdue University}{10408}{0.646}{headshots/rokita.jpg}
+\representative{Ted Poe (R)}{TX-2}{Rice University}{2962}{0.606}{headshots/poe.jpg}
+\representative{Lynn Jenkins (R)}{KS-2}{University of Kansas}{6139}{0.609}{headshots/jenkins.jpg}
+\representative{Jeff Duncan (R)}{SC-3}{Clemson University}{4507}{0.72}{headshots/duncan.jpg}
+\representative{Bill Flores (R)}{TX-17}{Texas A\&M University}{12283}{0.724}{headshots/flores.jpg}
+\representative{Steve Scalise (R)}{LA-1}{Tulane University}{5129}{0.746}{headshots/scalise.jpg}
+\representative{Jodey Arrington (R)}{TX-19}{Texas Tech University}{5814}{0.867}{headshots/arrington.jpg}
+\representative{Jody Hice (R)}{GA-10}{University of Georgia}{8623}{1.00}{headshots/hice.jpg}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
